@@ -1,0 +1,8 @@
+services:
+  trino:
+    image: trinodb/trino:479
+    container_name: trino-trial
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./etc:/etc/trino
