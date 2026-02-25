@@ -33,7 +33,6 @@ docker-compose down --remove-orphans
 SHOW CATALOGS;
 ```
 
-
 Теперь мы снова можем обращаться к каталогу `tpch` и выполнять запросы к нему.
 
 Самый простой запрос к каталогу `tpch` в Trino:
@@ -50,3 +49,39 @@ WHERE
 GROUP BY
   1;
 ```
+
+## Имена подключений
+
+Каталог регистрируется при создании файла свойств `catalog` в файловой системы `etc/catalog`.
+
+Базовое имя файла устанавливает имя каталога.
+
+Например, предположим, что вы создаете файлы свойств каталогов:
+
+- `etc/catalog/cdh-hadoop.properties`
+- `etc/catalog/sales.properties`
+- `etc/catalog/web-traic.properties`
+- `etc/catalog/mysql-dev.properties`.
+
+После этого каталоги предоставляются в Trino с именами:
+
+- `cdh-hadoop`
+- `sales`
+- `web-traffic`
+- `mysql-dev`
+
+### Как это проверить
+
+Измените имя файла `tpch.properties` на `tpch1.properties` и перезапустите контейнер командой:
+
+```bash
+docker-compose restart
+```
+
+После этого выполните запрос:
+
+```sql
+SHOW CATALOGS;
+```
+
+И убедитесь, что каталог `tpch` больше не отображается, а вместо него появился каталог `tpch1`.
