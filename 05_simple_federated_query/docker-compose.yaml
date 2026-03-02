@@ -6,3 +6,12 @@ services:
       - "8080:8080"
     volumes:
       - ./etc:/etc/trino
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
