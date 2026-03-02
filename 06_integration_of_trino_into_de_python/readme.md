@@ -1,11 +1,4 @@
-# Простой запуск Trino в Docker без конфигурации
-
-> В данном примере будут тестовые каталоги:
-> - jmx
-> - memory
-> - system
-> - tpcds
-> - tpch 
+# Интеграция Trino в дата-инженерию: Python
 
 Запуск Trino в Docker:
 
@@ -19,17 +12,15 @@ docker-compose up -d
 docker-compose down --remove-orphans
 ```
 
-Самый простой запрос к Trino:
+С Trino можно работать двумя способами:
 
-```sql
-SELECT
-  orderdate,
-  count(orderKey) AS cnt_orders,
-  sum(totalprice) AS sum_orders
-FROM
-  tpch.sf1.orders
-WHERE
-  1=1
-GROUP BY
-  1;
-```
+1) Через официальное Trino API — [trino](https://pypi.org/project/trino/).
+2) Через привычную многим библиотеку SQLAlchemy — [SQLAlchemy](https://pypi.org/project/SQLAlchemy/).
+
+## Demo Trino API
+
+[simple_trino_dbapi_query.py](simple_trino_dbapi_query.py)
+
+## Demo SQLAlchemy
+
+[simple_trino_sqlalchemy_query.py](simple_trino_sqlalchemy_query.py)
