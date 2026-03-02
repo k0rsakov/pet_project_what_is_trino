@@ -12,7 +12,7 @@
 │   ├── jvm.config
 │   └── node.properties
 ├── LICENSE
-└── README.md
+└── readme.md
 ```
 
 Запуск Trino в Docker:
