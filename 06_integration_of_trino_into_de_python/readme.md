@@ -17,10 +17,31 @@ docker-compose down --remove-orphans
 1) Через официальное Trino API — [trino](https://pypi.org/project/trino/).
 2) Через привычную многим библиотеку SQLAlchemy — [SQLAlchemy](https://pypi.org/project/SQLAlchemy/).
 
-## Demo Trino API
+## Чтение
 
-[simple_trino_dbapi_query.py](simple_trino_dbapi_query.py)
+- Чтение через Trino API — [simple_trino_dbapi_select_query.py](simple_trino_dbapi_select_query.py)
+- Чтение через SQLAlchemy — [simple_trino_sqlalchemy_select_query.py](simple_trino_sqlalchemy_select_query.py)
 
-## Demo SQLAlchemy
+## Запись
 
-[simple_trino_sqlalchemy_query.py](simple_trino_sqlalchemy_query.py)
+- Запись через Trino API — [simple_trino_dbapi_dml_query.py](simple_trino_dbapi_dml_query.py)
+- Запись через SQLAlchemy — [simple_trino_sqlalchemy_dml_query.py](simple_trino_sqlalchemy_dml_query.py)
+
+## Note
+
+При работе с Trino через SQLAlchemy в движке (`uri`) необходимо указывать полный путь до таблицы.
+
+Пример оформления `uri`:
+
+```python
+from sqlalchemy import create_engine
+
+connection_uri = f"trino://{TRINO_USER}@{TRINO_HOST}:{TRINO_PORT}/{TRINO_CATALOG}/{TRINO_SCHEMA}"
+engine = create_engine(connection_uri)
+```
+
+Поэтому в демо так:
+
+```python
+engine = create_engine('trino://admin@localhost:8080/memory/default')
+```
