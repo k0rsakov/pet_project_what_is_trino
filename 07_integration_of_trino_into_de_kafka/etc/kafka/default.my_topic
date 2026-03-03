@@ -1,0 +1,35 @@
+{
+    "tableName": "my_topic",
+    "topicName": "my_topic",
+    "schemaName": "default",
+    "message": {
+        "dataFormat": "json",
+        "fields": [
+            {
+                "name": "uuid",
+                "mapping": "uuid",
+                "type": "VARCHAR"
+            },
+            {
+                "name": "first_name",
+                "mapping": "first_name",
+                "type": "VARCHAR"
+            },
+            {
+                "name": "last_name",
+                "mapping": "last_name",
+                "type": "VARCHAR"
+            },
+            {
+                "name": "middle_name",
+                "mapping": "middle_name",
+                "type": "VARCHAR"
+            },
+            {
+                "name": "timestamp",
+                "mapping": "timestamp",
+                "type": "VARCHAR"
+            }
+        ]
+    }
+}

@@ -67,3 +67,77 @@ FROM
 	kafka."default".my_topic
 ```
 
+### Указание модели данных
+
+Одна из основных проблем при работе с Kafka — это соблюдение дата-контрактов и чтение разной модели данных.
+
+Для этого на уровне Trino можно задать конфиг для topic, чтобы его превратить в таблицу.
+
+Для этого создаём папку `kafka` на уровне `catalog` и добавляем туда файл с любым именем, но для консистентности лучше
+дать "*продолжение*" каталога.
+
+К примеру, мы назвали свой коннектор как `kafka`и название файла можно сделать `default.my_topic.json`, где `default` —
+это схема в каталоге `kafka`, `my_topic` — название таблицы.
+
+Пример `default.my_topic.json`:
+
+```json
+{
+  "tableName": "my_topic",
+  "topicName": "my_topic",
+  "schemaName": "default",
+  "message": {
+    "dataFormat": "json",
+    "fields": [
+      {
+        "name": "uuid",
+        "mapping": "uuid",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "first_name",
+        "mapping": "first_name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "last_name",
+        "mapping": "last_name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "middle_name",
+        "mapping": "middle_name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "timestamp",
+        "mapping": "timestamp",
+        "type": "VARCHAR"
+      }
+    ]
+  }
+}
+```
+ 
+И теперь мы можем перезапустить контейнер Trino командой:
+```bash
+docker restart trino
+```
+
+Мы получим такую структуру папок:
+
+```bash
+.
+├── docker-compose.yaml
+├── etc
+│   ├── catalog
+│   │   ├── kafka.properties
+│   │   └── tpch.properties
+│   ├── config.properties
+│   ├── jvm.config
+│   ├── kafka
+│   │   └── default.my_topic.json
+│   └── node.properties
+├── readme.md
+└── simple_producer.py
+```
