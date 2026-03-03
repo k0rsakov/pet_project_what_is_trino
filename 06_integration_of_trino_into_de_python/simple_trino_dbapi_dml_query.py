@@ -3,7 +3,7 @@ from random import randint
 import uuid
 from trino.dbapi import connect
 
-# 1. Создаем тестовый датафрейм (ваш код)
+# 1. Создаем тестовый датафрейм
 dict_ = {
     'id': [randint(a=10, b=100) for _ in range(10)],
     'value': [randint(a=100, b=1000) for _ in range(10)],
@@ -33,6 +33,7 @@ try:
 except Exception as e:
     print(f"Ошибка при создании таблицы: {e}")
 
+# 4. Вставка данных через executemany
 insert_sql = 'INSERT INTO memory."default".foo (id, value, str) VALUES (?, ?, ?)'
 
 data_to_insert = list(df.itertuples(index=False, name=None))
