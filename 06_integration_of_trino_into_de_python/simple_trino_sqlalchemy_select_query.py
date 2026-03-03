@@ -1,9 +1,7 @@
 from sqlalchemy import create_engine
 import pandas as pd
 
-conn_str = "trino://admin@localhost:8080/"
-
-engine = create_engine(conn_str)
+engine = create_engine("trino://admin@localhost:8080/")
 
 df = pd.read_sql_query(
     sql="""
