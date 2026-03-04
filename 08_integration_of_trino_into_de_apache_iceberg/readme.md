@@ -3,7 +3,16 @@
 Минимальная конфигурация Trino для интеграции с Apache Iceberg:
 
 ```bash
-
+.
+├── docker-compose.yaml
+├── etc
+│   ├── catalog
+│   │   ├── iceberg.properties
+│   │   └── tpch.properties
+│   ├── config.properties
+│   ├── jvm.config
+│   └── node.properties
+└── readme.md
 ```
 
 Запуск Trino в Docker:
