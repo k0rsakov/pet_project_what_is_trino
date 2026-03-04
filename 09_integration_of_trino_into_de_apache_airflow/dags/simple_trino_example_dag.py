@@ -11,7 +11,7 @@ from airflow.providers.trino.hooks.trino import TrinoHook
 
 args = {
     "owner": "i.korsakov",
-    "start_date": pendulum.datetime(year=2025, month=1, day=1, tz="UTC"),
+    "start_date": pendulum.datetime(year=2026, month=1, day=1, tz="UTC"),
     "retries": 3,
     "retry_delay": pendulum.duration(hours=1),
 }
