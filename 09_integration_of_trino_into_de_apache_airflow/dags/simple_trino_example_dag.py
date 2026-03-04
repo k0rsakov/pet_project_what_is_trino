@@ -41,14 +41,14 @@ def analyze_orders():
     # Хук сам создаст подключение и закроет его
     df = hook.get_pandas_df(sql="SELECT * FROM tpch.sf1.orders LIMIT 1000")
 
-    print(f"Stats: {df.describe()}")
+    logging.info(f"Option 🅰️:\nStats: {df.describe()}")
 
-    # Вариант Б: Если нужно низкоуровневое соединение (DBAPI)
+    # Вариант B: Если нужно низкоуровневое соединение (DBAPI)
     conn = hook.get_conn()
     cursor = conn.cursor()
     cursor.execute("SELECT count(*) FROM tpch.sf1.customer")
     result = cursor.fetchone()
-    print(f"Count: {result}")
+    logging.info(f"Option 🅱️:\nCount: {result}")
 
 
 with DAG(
@@ -74,6 +74,8 @@ with DAG(
         task_id="run_trino_query",
         conn_id="trino_default",
         sql="""
+            DROP TABLE IF EXISTS memory.default.orders_summary;
+            --
             CREATE TABLE IF NOT EXISTS memory.default.orders_summary AS
             SELECT orderdate, count(orderkey) as cnt
             FROM tpch.sf1.orders
