@@ -8,12 +8,9 @@ from airflow.operators.python import PythonOperator
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 from airflow.providers.trino.hooks.trino import TrinoHook
 
-# Конфигурация DAG
-OWNER = "i.korsakov"
-DAG_ID = "simple_trino_example_dag"
 
 args = {
-    "owner": OWNER,
+    "owner": "i.korsakov",
     "start_date": pendulum.datetime(year=2025, month=1, day=1, tz="UTC"),
     "retries": 3,
     "retry_delay": pendulum.duration(hours=1),
@@ -55,10 +52,10 @@ def analyze_orders():
 
 
 with DAG(
-    dag_id=DAG_ID,
+    dag_id="simple_trino_example_dag",
     schedule_interval="0 10 * * *",
     default_args=args,
-    tags=["context"],
+    tags=["trino_hook", "trino_operator"],
     concurrency=1,
     max_active_tasks=1,
     max_active_runs=1,
