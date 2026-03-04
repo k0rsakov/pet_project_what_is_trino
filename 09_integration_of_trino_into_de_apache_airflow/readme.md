@@ -18,20 +18,17 @@ docker-compose up -d
 docker-compose down --remove-orphans
 ```
 
-## Пример работы Apache Iceberg в Trino
+## Создание Trino коннекта в Airflow
 
-```sql
-SHOW CATALOGS;
+Через Web UI:
+1) Открыть `Admin`
+2) Открыть `Connections`
+3) Нажать на `+` (`Add a new record`)
+	1) `Connection Id` — `id` подключения
+	2) `Connection Type` — `Trino`
+	3) `Host` — `trino` (название сервиса в docker-compose)
+	4) `Login` — `admin` (любой другой, если авторизация не настроена)
+	5) `Port` — `8080` (порт внутри docker-compose)
 
-DROP SCHEMA IF EXISTS iceberg.test_schema;
-
-CREATE SCHEMA IF NOT EXISTS iceberg.test_schema;
-
-DROP TABLE IF EXISTS iceberg.test_schema.test_table;
-
-CREATE TABLE iceberg.test_schema.test_table (id int, name varchar);
-
-INSERT INTO iceberg.test_schema.test_table VALUES (1, 'Hello Iceberg');
-
-SELECT * FROM iceberg.test_schema.test_table;
-```
+Через Airflow API:
+- Вызвать "ручку" — [create_connection.py](handles/create_connection.py) 
