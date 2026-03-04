@@ -208,3 +208,4 @@ __marimo__/
 
 # Project
 08_integration_of_trino_into_de_apache_iceberg/data
+09_integration_of_trino_into_de_apache_airflow/logs
