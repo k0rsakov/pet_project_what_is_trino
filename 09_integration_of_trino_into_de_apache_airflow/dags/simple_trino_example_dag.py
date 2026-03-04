@@ -18,13 +18,6 @@ args = {
 
 
 def simple_task(**context) -> None:
-    """
-    Печатает контекст DAG.
-
-    @param context: Контекст DAG.
-    @return: Ничего не возвращает.
-    """
-
     for context_key, context_key_value in context.items():
         logging.info(
             f"key_name – {context_key} | "
@@ -79,7 +72,7 @@ with DAG(
             CREATE TABLE IF NOT EXISTS memory.default.orders_summary AS
             SELECT orderdate, count(orderkey) as cnt
             FROM tpch.sf1.orders
-            GROUP BY 1
+            GROUP BY 1;
         """,
     )
 
