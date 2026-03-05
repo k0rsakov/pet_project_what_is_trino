@@ -3,7 +3,14 @@
 Минимальная конфигурация Trino для интеграции с Apache Airflow:
 
 ```bash
-
+.
+├── dags
+│   └── simple_trino_example_dag.py
+├── docker-compose.yaml
+├── Dockerfile
+├── handles
+│   └── create_connection.py
+└── readme.md
 ```
 
 Запуск Trino в Docker:
@@ -31,4 +38,4 @@ docker-compose down --remove-orphans
 	5) `Port` — `8080` (порт внутри docker-compose)
 
 Через Airflow API:
-- Вызвать "ручку" — [create_connection.py](handles/create_connection.py) 
+- Вызвать "_ручку_" — [create_connection.py](handles/create_connection.py) 
