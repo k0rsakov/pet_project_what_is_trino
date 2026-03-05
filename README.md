@@ -6,7 +6,7 @@ https://www.notion.so/korsak0v/Data-Engineer-185c62fdf79345eb9da9928356884ea0
 
 ## О проекте
 
-Оглавление:
+Оглавление:                                                              
 
 - [00_the_theory_of_trino](00_the_theory_of_trino) — Теория по Trino.
 - [01_simple_trino_setup](01_simple_trino_setup) — Запуск Trino без конфигурации.
