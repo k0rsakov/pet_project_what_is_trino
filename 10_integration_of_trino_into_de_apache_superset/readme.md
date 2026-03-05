@@ -18,6 +18,12 @@ docker-compose up -d
 docker-compose down --remove-orphans
 ```
 
+## Работа с Superset
+
+- login: `admin`
+- password: `admin`
+- Web UI: `http://localhost:8088`
+
 ## Создание Trino коннекта в Superset
 
 Через Web UI:
@@ -106,6 +112,11 @@ SELECT * from postgresql.public.foo
 |----|-------|
 | 1  | 42    |
 
+\* Команда для перезагрузки Trino:
+
+```bash
+docker compose restart trino
+```
 ___
 
 Можно указывать конкретный коннектор в Superset при помощи чёткого указания его в `SQLAlchemy URI`.
