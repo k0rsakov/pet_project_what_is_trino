@@ -1,8 +1,8 @@
-from sqlalchemy import create_engine
-from random import randint
 import uuid
+from random import randint
 
 import pandas as pd
+from sqlalchemy import create_engine
 
 # 1. Создаем тестовый датафрейм
 dict_ = {

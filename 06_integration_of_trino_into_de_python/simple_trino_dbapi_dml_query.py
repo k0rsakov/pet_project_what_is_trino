@@ -1,6 +1,7 @@
-import pandas as pd
-from random import randint
 import uuid
+from random import randint
+
+import pandas as pd
 from trino.dbapi import connect
 
 # 1. Создаем тестовый датафрейм

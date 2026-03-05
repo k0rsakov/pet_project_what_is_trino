@@ -1,5 +1,5 @@
-from sqlalchemy import create_engine
 import pandas as pd
+from sqlalchemy import create_engine
 
 engine = create_engine("trino://admin@localhost:8080/")
 

@@ -1,8 +1,8 @@
 import json
 import time
+import uuid
 
 import pendulum
-import uuid
 from confluent_kafka import Producer
 from faker import Faker
 

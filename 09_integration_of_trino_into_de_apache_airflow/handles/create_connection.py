@@ -9,13 +9,13 @@ logging.basicConfig(
 )
 
 
-def create_airflow_connection(  # noqa: C901,PLR0913
+def create_airflow_connection(
         connection_id: str | None = "pg_con",
         conn_type: str | None = "postgres",
         description: str | None = None,
         host: str | None = "bi_postgres",
         login: str | None = "postgres",
-        password: str | None = "postgres",  # noqa: S107
+        password: str | None = "postgres",
         port: int | None = 5432,
         schema: str | None = "postgres",
         extra: str | None = None,
@@ -76,7 +76,7 @@ def create_airflow_connection(  # noqa: C901,PLR0913
 
         if response.status_code in {200, 201}:
             logging.info(f"✅ Подключение '{connection_id}' успешно создано.")
-        elif response.status_code == 409:  # Конфликт — уже существует  # noqa: PLR2004
+        elif response.status_code == 409:  # Конфликт — уже существует
             logging.info(f"✴️ Подключение '{connection_id}' уже существует.")
         else:
             logging.info(

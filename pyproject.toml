@@ -12,3 +12,48 @@ dependencies = [
     "confluent-kafka==2.13.2",
     "Faker==40.5.1"
 ]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "ANN",
+    "B",
+    "BLE",
+    "E",
+    "F",
+    "I",
+    "N801",
+    "N802",
+    "N803",
+    "N815",
+    "N816",
+    "RUF",
+    "SIM",
+    "UP",
+    "PD",
+    "NPY"
+]
+ignore = [
+    "ANN002",
+    "ANN003",
+    "ANN401",
+    "B009",
+    "B904",
+    "F821",
+    "RUF001",
+    "RUF002",
+    "RUF003",
+    "SIM117",
+    "SIM118",
+    "PD901",
+    "BLE001"
+]
+
+[tool.ruff.lint.isort]
+order-by-type = false
+case-sensitive = true
+
+[tool.ruff.format]
+quote-style = "double"

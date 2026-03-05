@@ -1,13 +1,11 @@
 import logging
 
 import pendulum
-
 from airflow import DAG
 from airflow.operators.empty import EmptyOperator
 from airflow.operators.python import PythonOperator
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 from airflow.providers.trino.hooks.trino import TrinoHook
-
 
 args = {
     "owner": "i.korsakov",
@@ -26,7 +24,7 @@ def simple_task(**context) -> None:
         )
 
 
-def analyze_orders():
+def analyze_orders() -> None:
     # Инициализируем хук
     hook = TrinoHook(trino_conn_id="trino_default")
 
