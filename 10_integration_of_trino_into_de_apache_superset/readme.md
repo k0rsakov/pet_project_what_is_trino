@@ -3,7 +3,16 @@
 Минимальная конфигурация Trino для интеграции с Apache Superset:
 
 ```bash
-
+.
+├── docker-compose.yaml
+├── etc
+│   ├── catalog
+│   │   ├── memory.properties
+│   │   └── tpch.properties
+│   ├── config.properties
+│   ├── jvm.config
+│   └── node.properties
+└── readme.md
 ```
 
 Запуск Trino в Docker:
