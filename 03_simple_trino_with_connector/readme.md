@@ -50,6 +50,8 @@ GROUP BY
   1;
 ```
 
+Все доступные коннекторы – [Connectors](https://trino.io/docs/current/connector.html).
+
 ## Имена подключений
 
 Каталог регистрируется при создании файла свойств `catalog` в файловой системы `etc/catalog`.

@@ -57,7 +57,7 @@ SELECT * FROM system.runtime.nodes;
 
 Trino WEB UI: http://localhost:8080/ui/
 
-Запрос к Trino cluster к каталогу `tpch`:
+Запрос в Trino cluster к каталогу `tpch`:
 
 ```sql
 EXPLAIN ANALYZE VERBOSE
