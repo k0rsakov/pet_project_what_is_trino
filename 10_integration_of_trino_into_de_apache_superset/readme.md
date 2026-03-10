@@ -65,7 +65,7 @@ docker-compose down --remove-orphans
 Но если написать запрос, который позволит посмотреть на схемы в классическом коннекторе `tpch`:
 
 ```sql
-SHOW SCHEMAS from tpch
+SHOW SCHEMAS from tpch;
 ```
 
 То он выведет следующую структуру:
@@ -106,13 +106,13 @@ GROUP BY
 ```sql
 CREATE TABLE foo (id int8 PRIMARY KEY, value int8);
 
-INSERT INTO foo VALUES(1,42);
+INSERT INTO foo VALUES(1, 42);
 ```
 
 То после перезагрузки сервисов можно выполнить запрос в Superset:
 
 ```sql
-SELECT * from postgresql.public.foo
+SELECT * from postgresql.public.foo;
 ```
 
 И получить результат:

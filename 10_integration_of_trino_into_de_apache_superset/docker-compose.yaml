@@ -91,6 +91,15 @@ services:
     command: >
       bash -c "superset run -h 0.0.0.0 -p 8088 --with-threads"
 
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+
 volumes:
   superset_db_data:
   superset_home:
