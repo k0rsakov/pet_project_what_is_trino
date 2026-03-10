@@ -49,8 +49,8 @@ docker-compose down --remove-orphans
 структуру:
 
 - `database`
-- `schema`
-- `table`
+  - `schema`
+    - `table`
 
 Но так как в Trino другая структура, то при написании запросов в SQL Lab, он отображает наш коннект как `database` и
 отображает схемы "*дефолтные*" `schema` (`SHOW SCHEMAS;`):
@@ -98,7 +98,7 @@ GROUP BY
   1;
 ```
 
-___
+#### Работа с PostgreSQL через Apache Superset
 
 Поэтому все коннекторы будут работать по тому же принципу. Если создать коннектор в Trino как описано
 в [05_simple_federated_query](../05_simple_federated_query) и создать таблицу в PostgreSQL:
@@ -126,7 +126,8 @@ SELECT * from postgresql.public.foo
 ```bash
 docker compose restart trino
 ```
-___
+
+#### Создание конкретного `uri`
 
 Можно указывать конкретный коннектор в Superset при помощи чёткого указания его в `SQLAlchemy URI`.
 
