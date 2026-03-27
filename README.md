@@ -41,7 +41,10 @@ Apache Iceberg, Airflow и Superset.
 
 Оглавление:
 
-- [00_the_theory_of_trino](00_the_theory_of_trino) — Теория по Trino.
+- [00_the_theory_of_trino](00_the_theory_of_trino) — Теория по Trino:
+  - [01_what_is_tirno.md](00_the_theory_of_trino/01_what_is_tirno.md) — Что такое Trino
+  - [02_what_is_trino_cluster.md](00_the_theory_of_trino/02_what_is_trino_cluster.md) — Что такое Trino Cluster
+  - [03_subtleties_of_the_trino.md](00_the_theory_of_trino/03_subtleties_of_the_trino.md) — Тонкости при работе с Trino
 - Быстрые старты:
     - [01_simple_trino_setup](01_simple_trino_setup) — Запуск Trino без конфигурации.
     - [02_simple_trino_setup_with_configuration](02_simple_trino_setup_with_configuration) — Запуск Trino со своей
