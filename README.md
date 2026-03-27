@@ -3,7 +3,7 @@
 - ✉️ Вопросы, обучение, консультации по Data Engineering — пиши в
   личку: https://korsak0v.notion.site/Data-Engineer-185c62fdf79345eb9da9928356884ea0
 - 💥 Аналог Notion (если не работает ссылка выше) — https://www.dataengineers.pro/mentors/korsakov-ivan
-- [Видео](https://youtu.be/Z2k-b7ALuuM)
+- [Видео](https://youtu.be/Z2k-b7ALuuM) — https://youtu.be/Z2k-b7ALuuM
 
 ## О видео
 
